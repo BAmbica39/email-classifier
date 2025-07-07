@@ -1,0 +1,318 @@
+/* ☀️ Enhanced Light Mode Base Styles */
+body, html, .stApp {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1a202c;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+}
+
+/* ✨ Global Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    50% { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: 200px 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* 📝 Enhanced Text Areas and Inputs */
+textarea, input, .stTextInput > div > div, .stTextArea > div > textarea {
+    background: linear-gradient(145deg, #ffffff, #f1f5f9) !important;
+    color: #1a202c !important;
+    border: 2px solid transparent !important;
+    background-clip: padding-box;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea:focus, input:focus, .stTextInput > div > div:focus, .stTextArea > div > textarea:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 8px 30px rgba(59, 130, 246, 0.15) !important;
+    transform: translateY(-2px);
+}
+
+textarea::placeholder, input::placeholder {
+    color: #64748b !important;
+    transition: color 0.3s ease;
+}
+
+textarea:focus::placeholder, input:focus::placeholder {
+    color: #475569 !important;
+}
+
+/* 🧠 Enhanced Button Styling */
+.stButton > button {
+    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
+    color: white !important;
+    border: none !important;
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s ease-out;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.stButton > button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.stButton > button:hover::before {
+    left: 100%;
+}
+
+.stButton > button:active {
+    transform: translateY(-1px);
+    transition: transform 0.1s ease;
+}
+
+/* 📤 Enhanced File Uploader */
+.stFileUploader {
+    background: linear-gradient(145deg, #ffffff, #f1f5f9) !important;
+    color: #1a202c;
+    border: 2px dashed #3b82f6;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideInLeft 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stFileUploader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+    background-size: 200px 200px;
+    animation: shimmer 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stFileUploader:hover {
+    border-color: #2563eb;
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+}
+
+.stFileUploader:hover::before {
+    opacity: 1;
+}
+
+/* 📊 Enhanced Animated Progress */
+.stProgress > div {
+    background-color: #e2e8f0 !important;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stProgress > div > div {
+    background: linear-gradient(90deg, #10b981, #059669) !important;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.stProgress > div > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background-size: 100px 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* 📋 Enhanced Tabs */
+.stTabs [data-baseweb="tab"] {
+    color: #1a202c;
+    background: linear-gradient(145deg, #ffffff, #f1f5f9);
+    border-radius: 12px 12px 0 0;
+    padding: 1rem 2rem;
+    margin-right: 4px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stTabs [data-baseweb="tab"]::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"]::before {
+    transform: scaleX(1);
+}
+
+/* 🔄 Enhanced Sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    color: #1a202c;
+    border-right: 1px solid #e2e8f0;
+    animation: slideInLeft 0.8s ease-out;
+    position: relative;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-testid="stSidebar"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #3b82f6, transparent);
+    animation: pulse 2s infinite;
+}
+
+/* 🎨 Custom Containers */
+.stContainer {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* 📱 Mobile Responsive Enhancements */
+@media (max-width: 768px) {
+    .stButton > button {
+        padding: 0.7rem 1.5rem;
+        font-size: 13px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        padding: 0.8rem 1.5rem;
+        font-size: 14px;
+    }
+    
+    .stFileUploader {
+        padding: 1.5rem;
+    }
+}
+
+/* 🌟 Additional Enhancements */
+.stSelectbox > div > div {
+    background: linear-gradient(145deg, #ffffff, #f1f5f9) !important;
+    color: #1a202c !important;
+    border: 2px solid transparent !important;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stSelectbox > div > div:hover {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+}
+
+.stMarkdown {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 🔥 Glow Effects for Interactive Elements */
+.stButton > button:focus,
+textarea:focus,
+input:focus,
+.stSelectbox > div > div:focus {
+    animation: glow 2s infinite;
+}
+
+/* 🎭 Hover Effects for Cards */
+.stContainer:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* 🌈 Success/Error State Animations */
+.stSuccess {
+    animation: fadeInUp 0.5s ease-out, pulse 1s ease-in-out;
+}
+
+.stError {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* 🎪 Loading State */
+.stSpinner {
+    animation: pulse 1s infinite;
+}
